@@ -34,6 +34,8 @@ export function isValidSignatureForStringBody(
   const hmac = crypto.createHmac('sha256', signingKey);
   hmac.update(body, 'utf8');
   const digest = hmac.digest('hex');
+  console.log(`signature: ${signature}`);
+  console.log(`digest: ${digest}`);
   console.log(`signature check: ${signature === digest}`);
   return signature === digest;
 }
